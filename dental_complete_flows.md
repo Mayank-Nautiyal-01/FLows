@@ -154,7 +154,7 @@ flowchart TD
     M --> N["📱 SMS confirmation sent"]
     N --> O["✅ Appointment Booked"]
 
-    O --> P["--- DAY OF VISIT ---"]
+    O --> P["🏥 DAY OF VISIT"]
     P --> Q["Patient arrives"]
     Q --> R{New or Old patient?}
     R -->|New| S["Flag: NEW Patient"]
@@ -255,7 +255,7 @@ flowchart TD
     X -->|No| Z["Send back with remarks"]
     Z --> V
 
-    U -->|No (Senior)| Y
+    U -->|"No (Senior)"| Y
     Y --> AA["Treatment status:<br/>Planned → In-Progress"]
     AA --> AB["Schedule procedure sittings<br/>in TBL_P100_PROC_Sitting"]
     AB --> AC["✅ Treatment plan ready"]
@@ -549,7 +549,7 @@ flowchart TD
     J -->|Yes| K["🏥 OT Scheduling<br/>(FormGridOTSch.aspx)"]
     K --> L["Assign:<br/>• OT Room (FK_OT100)<br/>• Date & Time<br/>• Surgeon<br/>• Anesthetist"]
     L --> M["Generate OT Tracking ID:<br/>YYYYMMDD0001"]
-    J -->|No (Chair-side)| N["Perform in clinic"]
+    J -->|"No (Chair-side)"| N["Perform in clinic"]
 
     M --> N
     N --> O["🦷 Procedure performed"]
@@ -746,7 +746,7 @@ flowchart TD
     G --> I["✅ Attendance recorded"]
     H --> I
 
-    J["--- LEAVE APPLICATION ---"] --> K["Employee opens<br/>Leave Apply page"]
+    J["📋 LEAVE APPLICATION"] --> K["Employee opens<br/>Leave Apply page"]
     K --> L["Select Leave Type:<br/>CL / EL / SL / ML / etc."]
     L --> M["Enter From/To dates<br/>+ half-day option"]
     M --> N["Enter reason + contact details"]
@@ -755,7 +755,7 @@ flowchart TD
     P -->|No| Q["⚠️ Insufficient balance"]
     P -->|Yes| R["Submit application<br/>→ INSERT TBL_Leave101<br/>Status = 'Pending'"]
 
-    R --> S["--- MANAGER APPROVAL ---<br/>(FormGridLeaveApprove.aspx)"]
+    R --> S["👔 MANAGER APPROVAL<br/>(FormGridLeaveApprove.aspx)"]
     S --> T["Manager views pending<br/>leave applications"]
     T --> U["View employee details<br/>+ leave history<br/>+ dept staff availability"]
     U --> V{Decision?}
@@ -765,7 +765,7 @@ flowchart TD
     W --> Y["Employee notified ✅"]
     X --> Y
 
-    Z["--- REGULARIZATION ---"] --> AA["Employee submits regularization<br/>for missed punch / absence"]
+    Z["⏱️ REGULARIZATION"] --> AA["Employee submits regularization<br/>for missed punch / absence"]
     AA --> AB["Provide NewInTime, NewOutTime<br/>+ justification"]
     AB --> AC["Manager approves"]
     AC --> AD["TBL_EMP100_Att updated:<br/>Attendance = 'P'<br/>REG_Approved flag set ✅"]
@@ -815,7 +815,7 @@ flowchart TD
     A["🏕️ Plan dental health camp"] --> B["Create camp record<br/>→ ECL.TBL_CMP100"]
     B --> C["Camp Details:<br/>• Organization Name<br/>• Contact Person<br/>• Location<br/>• Date<br/>• Doctor In-Charge"]
     C --> D["Assign camp doctors<br/>→ ECL.TBL_CMP101"]
-    D --> E["--- CAMP DAY ---"]
+    D --> E["🏕️ CAMP DAY"]
     E --> F["Register camp patients<br/>→ ECL.TBL_CMP102"]
     F --> G["Record observations<br/>& findings per patient"]
     G --> H["Track expenses"]
